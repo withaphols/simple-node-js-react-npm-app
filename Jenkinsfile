@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-		sh 'chown -R $(whoami) ~/.npm --allow-root'
+		sh 'chown -R $(whoami) ~/.npm'
                 sh 'npm install --unsafe-perm=true --allow-root' 
             }
         }
