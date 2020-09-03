@@ -1,15 +1,27 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:12-alpine3.9' 
-            args '-p 3000:3000' 
-        }
-    }
+    agent any
     stages {
-        stage('Build') { 
+        stage("Checkout code") {
             steps {
-                sh 'npm install' 
+                checkout scm
             }
         }
-    }
+        stage("Build image") {
+            steps {
+                script {
+                    myapp = docker.build("DOCKER-HUB-USERNAME/hello:${env.BUILD_ID}")
+                }
+            }
+        }
+        stage("Push image") {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                            myapp.push("latest")
+                            myapp.push("${env.BUILD_ID}")
+                    }
+                }
+            }
+        }        
+    }    
 }
