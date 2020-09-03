@@ -7,12 +7,12 @@ metadata:
     app: hello
 spec:
   strategy:
-  type: Recreate
-template:
-  metadata:
-    labels:
-      app: hello
-      tier: hello
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: hello
+        tier: hello
   spec:
     containers:
     - name: hello
