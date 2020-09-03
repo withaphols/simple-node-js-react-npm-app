@@ -26,7 +26,7 @@ pipeline {
 	stage('Deploy to GKE production cluster') {
             steps{
                 input message:"Proceed with final deployment?"
-		sh kubectl create -f deployment.yaml
+		sh 'kubectl create -f deployment.yaml'
             }
         }   
     }    
