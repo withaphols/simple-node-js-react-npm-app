@@ -26,15 +26,15 @@ template:
 apiVersion: v1
 kind: Service
 metadata:
-name: hello
-namespace: tarnamespace
-labels:
-  app: hello
+  name: hello
+  namespace: tarnamespace
+  labels:
+    app: hello
 spec:
-ports:
+  ports:
   - port: 5000
     targetPort: 5000
-selector:
-  app: hello
-  tier: hello
-type: LoadBalancer
+  selector:
+    app: hello
+    tier: hello
+  type: LoadBalancer
