@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: hello
-namespace: tarnamespace
-labels:
-  app: hello
+  name: hello
+  namespace: tarnamespace
+  labels:
+    app: hello
 spec:
 strategy:
   type: Recreate
