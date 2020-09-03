@@ -23,5 +23,11 @@ pipeline {
                 }
             }
         }        
+	stage('Deploy to GKE production cluster') {
+            steps{
+                input message:"Proceed with final deployment?"
+                step([deployment.yaml, verifyDeployments: true])
+            }
+        }   
     }    
 }
