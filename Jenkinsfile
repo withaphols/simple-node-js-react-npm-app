@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }        
-	stage('Deploy to Kubernetes production cluster') {
+	stage('Deploy to Kubernetes cluster') {
             steps{
                 input message:"Proceed with final deployment?"
 		sh 'kubectl apply -f deployment.yaml'
