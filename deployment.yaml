@@ -37,4 +37,4 @@ spec:
   selector:
     app: hello
     tier: hello
-  type: LoadBalancer
+    type: LoadBalancer
