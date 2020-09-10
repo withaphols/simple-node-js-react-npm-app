@@ -26,7 +26,7 @@ pipeline {
 	stage('Deploy to Kubernetes cluster') {
             steps{
                 input message:"Proceed with final deployment?"
-		sh 'kubectl create -f deployment.yaml'
+		sh 'kubectl apply -f deployment.yaml'
             }
         }   
     }    
